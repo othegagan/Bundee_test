@@ -8,6 +8,7 @@ import BundeeBranding from '@/components/landing_page/barnding';
 import RecentlyViewedComponents from '@/components/landing_page/recentlyviewed_vehicles';
 import { useEffect, useState } from 'react';
 import { initializeAuthTokens } from './_actions/initilize_auth_token';
+import HideInIFrame from '@/components/HideInIFrame';
 
 const LandingPage = () => {
     const [userLoggedIn, setUserLoggedIn] = useState(false);
@@ -32,12 +33,13 @@ const LandingPage = () => {
     return (
         <>
             <HeroSeaction />
-            <Available_Locations />
-            {userLoggedIn ? <RecentlyViewedComponents /> : null}
-            <Banner />
-            <BundeeBranding />
-            <FAQ />
-
+            <HideInIFrame>
+                <Available_Locations />
+                {userLoggedIn ? <RecentlyViewedComponents /> : null}
+                <Banner />
+                <BundeeBranding />
+                <FAQ />
+            </HideInIFrame>
         </>
     );
 };

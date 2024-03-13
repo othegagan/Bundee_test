@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import { Toaster } from '@/components/ui/toaster';
 import Providers from '@/lib/Providers';
+import HideInIFrame from '@/components/HideInIFrame';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,11 +22,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Providers>
                 <Head />
                 <body className={` ${inter.className} flex flex-col  w-full min-h-screen`}>
-                    <Navbar />
+                    <HideInIFrame>
+                        <Navbar />
+                    </HideInIFrame>
 
                     {children}
                     <Toaster />
-                    <Footer />
+                    <HideInIFrame>
+                        <Footer />
+                    </HideInIFrame>
                 </body>
             </Providers>
         </html>
