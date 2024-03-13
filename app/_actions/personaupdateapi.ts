@@ -7,7 +7,7 @@ export const callApi = async (personaEnquiryId: string, userId: string) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                bundee_auth_token: '51699e35f393ba8a7642c80a245e5b8aad4200c961fa8469bae0ef984cb95e95d9f3677ca9a32e1838cfbd897297ab2a',
+                bundee_auth_token: process.env.FALLBACK_BUNDEE_AUTH_TOKEN,
             },
             body: JSON.stringify({
                 personaEnquiryId,
