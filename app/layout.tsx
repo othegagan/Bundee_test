@@ -22,9 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Providers>
                 <Head />
                 <body className={` ${inter.className} flex flex-col  w-full min-h-screen`}>
-                    <HideInIFrame>
-                        <Navbar />
-                    </HideInIFrame>
+                    <Navbar />
 
                     {children}
                     <Toaster />
