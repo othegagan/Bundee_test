@@ -9,8 +9,10 @@ import RecentlyViewedComponents from '@/components/landing_page/recentlyviewed_v
 import { useEffect, useState } from 'react';
 import { initializeAuthTokens } from './_actions/initilize_auth_token';
 import HideInIFrame from '@/components/HideInIFrame';
+import useHashIdLocalStorage from '@/hooks/useHashIdLocalStorage';
 
 const LandingPage = () => {
+    useHashIdLocalStorage('hostid');
     const [userLoggedIn, setUserLoggedIn] = useState(false);
     useEffect(() => {
         const fetchTokens = async () => {
